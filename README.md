@@ -14,7 +14,7 @@ pip 23.0.1 from C:\Users\ATUL\AppData\Local\Programs\Python\Python310\lib\site-p
 ```
 # create vertial environment
 Syntax:
-python -m venv <virtualEnvironmentName>
+python -m venv virtualEnvironmentName
 ```
 D:\mydjangofirst>python -m venv venv
 D:\mydjangofirst>

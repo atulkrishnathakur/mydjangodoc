@@ -19,3 +19,14 @@ python -m venv virtualEnvironmentName
 D:\mydjangofirst>python -m venv venv
 D:\mydjangofirst>
 ```
+# activate virtual environmet
+```
+D:\mydjangofirst>venv\Scripts\activate.bat
+
+(venv) D:\mydjangofirst>
+```
+# deactivate virtual environment
+```
+(venv) D:\mydjangofirst>venv\Scripts\deactivate.bat
+D:\mydjangofirst>
+```

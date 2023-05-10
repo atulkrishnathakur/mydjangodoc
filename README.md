@@ -35,3 +35,8 @@ D:\mydjangofirst>
 ```
 (venv) D:\mydjangofirst>python -m pip install Django==4.2.1
 ```
+# Check django version
+```
+(venv) D:\mydjangofirst>python -m django --version
+4.2.1
+```

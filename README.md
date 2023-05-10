@@ -30,3 +30,8 @@ D:\mydjangofirst>venv\Scripts\activate.bat
 (venv) D:\mydjangofirst>venv\Scripts\deactivate.bat
 D:\mydjangofirst>
 ```
+# install Django with specific version
+1. activate the virtual environment
+```
+(venv) D:\mydjangofirst>python -m pip install Django==4.2.1
+```

@@ -12,7 +12,7 @@ Python 3.10.11
 C:\Users\ATUL>pip --version
 pip 23.0.1 from C:\Users\ATUL\AppData\Local\Programs\Python\Python310\lib\site-packages\pip (python 3.10)
 ```
-# create vertial environment
+# create virtual environment
 Syntax:
 python -m venv virtualEnvironmentName
 ```

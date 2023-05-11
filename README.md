@@ -40,3 +40,11 @@ D:\mydjangofirst>
 (venv) D:\mydjangofirst>python -m django --version
 4.2.1
 ```
+# Create Project
+Command:
+django-admin startproject projectName
+```
+(venv) D:\mydjangofirst>django-admin startproject mydjangodoc
+
+(venv) D:\mydjangofirst>
+```

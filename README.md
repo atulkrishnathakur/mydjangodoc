@@ -48,7 +48,7 @@ Successfully installed Django-4.2.1 asgiref-3.6.0 sqlparse-0.4.4 tzdata-2023.3
 (venv) I:\mydjangofirst>python -m django --version
 4.2.1
 ```
-#django-admin command
+# django-admin command
 ```
 (venv) I:\mydjangofirst>django-admin
 
@@ -111,7 +111,7 @@ Django version 4.2.1, using settings 'mydjangodoc.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CTRL-BREAK.
 ```
-#MySQL connection with Django
+# MySQL connection with Django
 ```
 DATABASES = {  
     'default': {  
@@ -126,7 +126,7 @@ DATABASES = {
 ```
 Note: If you are getting error of mysqlclient then install mysql client
 
-#install mysqlclient
+# install mysqlclient
 ```
 (venv) I:\mydjangofirst\mydjangodoc>pip install mysqlclient
 Collecting mysqlclient

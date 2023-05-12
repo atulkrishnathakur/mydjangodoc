@@ -15,14 +15,13 @@ I:\mydjangofirst>python -m venv venv
 ```
 # activate virtual environmet
 ```
-D:\mydjangofirst>venv\Scripts\activate.bat
-
-(venv) D:\mydjangofirst>
+I:\mydjangofirst>venv\Scripts\activate.bat
+(venv) I:\mydjangofirst>
 ```
 # deactivate virtual environment
 ```
-(venv) D:\mydjangofirst>venv\Scripts\deactivate.bat
-D:\mydjangofirst>
+(venv) I:\mydjangofirst>venv\Scripts\deactivate.bat
+I:\mydjangofirst>
 ```
 # install Django with specific version
 1. activate the virtual environment

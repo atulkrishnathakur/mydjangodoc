@@ -11,8 +11,7 @@ pip 23.0.1 from C:\Users\ATUL\AppData\Local\Programs\Python\Python310\lib\site-p
 # create virtual environment
 <b>Command</b>:python -m venv virtualEnvironmentName
 ```
-D:\mydjangofirst>python -m venv venv
-D:\mydjangofirst>
+I:\mydjangofirst>python -m venv venv
 ```
 # activate virtual environmet
 ```

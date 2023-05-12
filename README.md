@@ -111,3 +111,17 @@ Django version 4.2.1, using settings 'mydjangodoc.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CTRL-BREAK.
 ```
+#MySQL connection with Django
+```
+DATABASES = {  
+    'default': {  
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'mydjangodoc',  
+        'USER':'root',  
+        'PASSWORD':'',  
+        'HOST':'localhost',  
+        'PORT':'3306'  
+    }  
+} 
+```
+Note: If you are getting error of mysqlclient then install mysql client

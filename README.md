@@ -5,7 +5,7 @@ Python 3.10.11
 ```
 # Check PIP version
 ```
-C:\Users\ATUL>pip --version
+I:\mydjangofirst>pip --version
 pip 23.0.1 from C:\Users\ATUL\AppData\Local\Programs\Python\Python310\lib\site-packages\pip (python 3.10)
 ```
 # create virtual environment

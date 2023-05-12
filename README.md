@@ -125,3 +125,18 @@ DATABASES = {
 } 
 ```
 Note: If you are getting error of mysqlclient then install mysql client
+
+#install mysqlclient
+```
+(venv) I:\mydjangofirst\mydjangodoc>pip install mysqlclient
+Collecting mysqlclient
+  Downloading mysqlclient-2.1.1-cp310-cp310-win_amd64.whl (178 kB)
+     ---------------------------------------- 178.4/178.4 kB 672.8 kB/s eta 0:00:00
+Installing collected packages: mysqlclient
+Successfully installed mysqlclient-2.1.1
+
+[notice] A new release of pip is available: 23.0.1 -> 23.1.2
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+(venv) I:\mydjangofirst\mydjangodoc>
+```

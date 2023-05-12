@@ -45,23 +45,60 @@ Successfully installed Django-4.2.1 asgiref-3.6.0 sqlparse-0.4.4 tzdata-2023.3
 ```
 # Check django version
 ```
-(venv) D:\mydjangofirst>python -m django --version
+(venv) I:\mydjangofirst>python -m django --version
 4.2.1
 ```
+#django-admin command
+```
+(venv) I:\mydjangofirst>django-admin
+
+Type 'django-admin help <subcommand>' for help on a specific subcommand.
+
+Available subcommands:
+
+[django]
+    check
+    compilemessages
+    createcachetable
+    dbshell
+    diffsettings
+    dumpdata
+    flush
+    inspectdb
+    loaddata
+    makemessages
+    makemigrations
+    migrate
+    optimizemigration
+    runserver
+    sendtestemail
+    shell
+    showmigrations
+    sqlflush
+    sqlmigrate
+    sqlsequencereset
+    squashmigrations
+    startapp
+    startproject
+    test
+    testserver
+Note that only Django core commands are listed as settings are not properly configured (error: Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.).
+```
+
 # Create Project
 <b>Command:</b>
 django-admin startproject projectName
 ```
-(venv) D:\mydjangofirst>django-admin startproject mydjangodoc
+(venv) I:\mydjangofirst>django-admin startproject mydjangodoc
 
-(venv) D:\mydjangofirst>
+(venv) I:\mydjangofirst>
 ```
 
 # Run the Django Project
 <b>Command:</b>
 python manage.py runserver
 ```
-(venv) D:\mydjangofirst\mydjangodoc>python manage.py runserver
+(venv) I:\mydjangofirst\mydjangodoc>python manage.py runserver
 Watching for file changes with StatReloader
 Performing system checks...
 
@@ -69,7 +106,7 @@ System check identified no issues (0 silenced).
 
 You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
 Run 'python manage.py migrate' to apply them.
-May 11, 2023 - 10:43:31
+May 12, 2023 - 10:46:45
 Django version 4.2.1, using settings 'mydjangodoc.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CTRL-BREAK.

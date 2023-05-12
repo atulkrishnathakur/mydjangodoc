@@ -26,7 +26,22 @@ I:\mydjangofirst>
 # install Django with specific version
 1. activate the virtual environment
 ```
-(venv) D:\mydjangofirst>python -m pip install Django==4.2.1
+(venv) I:\mydjangofirst>python -m pip install Django==4.2.1
+Collecting Django==4.2.1
+  Using cached Django-4.2.1-py3-none-any.whl (8.0 MB)
+Collecting asgiref<4,>=3.6.0
+  Using cached asgiref-3.6.0-py3-none-any.whl (23 kB)
+Collecting tzdata
+  Using cached tzdata-2023.3-py2.py3-none-any.whl (341 kB)
+Collecting sqlparse>=0.3.1
+  Using cached sqlparse-0.4.4-py3-none-any.whl (41 kB)
+Installing collected packages: tzdata, sqlparse, asgiref, Django
+Successfully installed Django-4.2.1 asgiref-3.6.0 sqlparse-0.4.4 tzdata-2023.3
+
+[notice] A new release of pip is available: 23.0.1 -> 23.1.2
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+(venv) I:\mydjangofirst>
 ```
 # Check django version
 ```

@@ -277,3 +277,5 @@ Operations to perform:
 Running migrations:
   Applying auth.0012_alter_user_first_name_max_length... OK
 ```
+# create an app in Django
+<b>Command: python manage.py startapp [appname]</b>

@@ -256,3 +256,15 @@ Running migrations:
   Applying auth.0011_update_proxy_permissions... OK
   Applying auth.0012_alter_user_first_name_max_length... OK
 ```
+
+# reverse(rollback) to previous migrations
+suppose that your 0012 migtration migrated but you want to reverse to previouse migration like 0011 
+<b>command: python manage.py migrate auth [previous migration number]</b>
+```
+(venv) I:\mydjangofirst\mydjangodoc>python manage.py migrate auth 0011
+Operations to perform:
+  Target specific migration: 0011_update_proxy_permissions, from auth
+Running migrations:
+  Rendering model states... DONE
+  Unapplying auth.0012_alter_user_first_name_max_length... OK
+```

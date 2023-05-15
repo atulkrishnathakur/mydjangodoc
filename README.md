@@ -258,7 +258,7 @@ Running migrations:
 ```
 
 # reverse(rollback) to previous migrations
-suppose that your 0012 migtration migrated but you want to reverse to previouse migration like 0011 
+suppose that your 0012 migtration migrated but you want to reverse to previouse migration like 0011 <br>
 <b>command: python manage.py migrate auth [previous migration number]</b>
 ```
 (venv) I:\mydjangofirst\mydjangodoc>python manage.py migrate auth 0011

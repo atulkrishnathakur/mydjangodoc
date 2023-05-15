@@ -279,3 +279,6 @@ Running migrations:
 ```
 # create an app in Django
 <b>Command: python manage.py startapp [appname]</b>
+```
+(venv) I:\mydjangofirst\mydjangodoc>python manage.py startapp user
+```

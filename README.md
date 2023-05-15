@@ -268,3 +268,12 @@ Running migrations:
   Rendering model states... DONE
   Unapplying auth.0012_alter_user_first_name_max_length... OK
 ```
+
+# migrate only one migration file
+```
+(venv) I:\mydjangofirst\mydjangodoc>python manage.py migrate auth 0012
+Operations to perform:
+  Target specific migration: 0012_alter_user_first_name_max_length, from auth
+Running migrations:
+  Applying auth.0012_alter_user_first_name_max_length... OK
+```

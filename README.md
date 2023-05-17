@@ -280,5 +280,19 @@ Running migrations:
 # create an app in Django
 <b>Command: python manage.py startapp [appname]</b>
 ```
-(venv) I:\mydjangofirst\mydjangodoc>python manage.py startapp user
+(venv) I:\mydjangofirst\mydjangodoc>python manage.py startapp productmanagement
+```
+# Register app
+Open the setting.py file
+```
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'user',
+    'productmanagement',
+]
 ```

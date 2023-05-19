@@ -310,3 +310,10 @@ INSTALLED_APPS = [
     'productmanagement',
 ]
 ```
+# makemigrations
+```
+(venv) I:\mydjangofirst\mydjangodoc>python manage.py makemigrations
+Migrations for 'projectmanagement':
+  projectmanagement\migrations\0001_initial.py
+    - Create model Category
+```

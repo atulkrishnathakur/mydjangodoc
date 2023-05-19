@@ -310,9 +310,20 @@ INSTALLED_APPS = [
     'productmanagement',
 ]
 ```
-# makemigrations
+# create migration for all app
+It create the migrations for all apps.
+<b>Command: python manage.py makemigrations</b>
 ```
 (venv) I:\mydjangofirst\mydjangodoc>python manage.py makemigrations
+Migrations for 'projectmanagement':
+  projectmanagement\migrations\0001_initial.py
+    - Create model Category
+```
+# create migration for a specific app
+It create the migrations for a specific app.
+<b>Command: python manage.py makemigrations [app_name]</b>
+```
+(venv) I:\mydjangofirst\mydjangodoc>python manage.py makemigrations projectmanagement
 Migrations for 'projectmanagement':
   projectmanagement\migrations\0001_initial.py
     - Create model Category

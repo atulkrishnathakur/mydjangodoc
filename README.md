@@ -373,8 +373,8 @@ Note: cat_id = models.BigAutoField(primary_key=True) used to create auto increme
 Note: db_table = 'categories' used in meta class to create table name. Here table name is categories.
 
 # Create a nullable field
-Note: write code in models.py file of app
-If True, Django will store empty values as NULL in the database. Default is False.
+Note: write code in models.py file of app<br>
+If null=True, Django will store empty values as NULL in the database. Default is False.
 ```
 from django.db import models
 
@@ -384,4 +384,19 @@ class Category(models.Model):
     
     class Meta:
         db_table = 'categories'
+```
+# Create a unique filed
+Note: write code in models.py file of app<br>
+If unique=True used then unique field will be create.
+```
+from django.db import models
+
+class Category(models.Model):
+    cat_id = models.BigAutoField(primary_key=True)
+    category_name = models.CharField(max_length=120,null=True)
+    category_code = models.CharField(max_length=50,null=True,unique=True)
+    
+    class Meta:
+        db_table = 'categories'
+
 ```

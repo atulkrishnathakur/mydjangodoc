@@ -346,3 +346,13 @@ Operations to perform:
 Running migrations:
   Applying projectmanagement.0001_initial... OK
 ```
+# Create a simple model
+In models.py file write the code
+```
+from django.db import models
+
+class Category(models.Model):
+    category_name = models.CharField(max_length=120)
+```
+Note: Django create table name automaticaly <b>appname_modelclassname</b><br>
+Note: Django automatically create auto incremented field. Field name will be id.

@@ -311,7 +311,7 @@ INSTALLED_APPS = [
 ]
 ```
 # create migration for all app
-It create the migrations for all apps.
+It create the migrations for all apps.<br>
 <b>Command: python manage.py makemigrations</b>
 ```
 (venv) I:\mydjangofirst\mydjangodoc>python manage.py makemigrations
@@ -320,11 +320,20 @@ Migrations for 'projectmanagement':
     - Create model Category
 ```
 # create migration for a specific app
-It create the migrations for a specific app.
+It create the migrations for a specific app.<br>
 <b>Command: python manage.py makemigrations [app_name]</b>
 ```
 (venv) I:\mydjangofirst\mydjangodoc>python manage.py makemigrations projectmanagement
 Migrations for 'projectmanagement':
   projectmanagement\migrations\0001_initial.py
     - Create model Category
+```
+# Show the sql query of migration
+<b>Command: python manage.py sqlmigrate [app_name] [migration_name]</b>
+```
+(venv) I:\mydjangofirst\mydjangodoc>python manage.py sqlmigrate projectmanagement 0001
+--
+-- Create model Category
+--
+CREATE TABLE `projectmanagement_category` (`id` bigint AUTO_INCREMENT NOT NULL PRIMARY KEY, `category_name` varchar(120) NOT NULL);
 ```

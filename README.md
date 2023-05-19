@@ -371,3 +371,17 @@ class Category(models.Model):
 ```
 Note: cat_id = models.BigAutoField(primary_key=True) used to create auto incremented field with primary key. field name is cat_id
 Note: db_table = 'categories' used in meta class to create table name. Here table name is categories.
+
+# Create a nullable field
+Note: write code in models.py file of app
+If True, Django will store empty values as NULL in the database. Default is False.
+```
+from django.db import models
+
+class Category(models.Model):
+    cat_id = models.BigAutoField(primary_key=True)
+    category_name = models.CharField(max_length=120,null=True)
+    
+    class Meta:
+        db_table = 'categories'
+```

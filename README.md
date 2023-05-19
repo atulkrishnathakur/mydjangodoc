@@ -48,13 +48,20 @@ Successfully installed Django-4.2.1 asgiref-3.6.0 sqlparse-0.4.4 tzdata-2023.3
 (venv) I:\mydjangofirst>python -m django --version
 4.2.1
 ```
-# django-admin command
+# Check help
 ```
-(venv) I:\mydjangofirst>django-admin
+(venv) I:\mydjangofirst\mydjangodoc>python manage.py help
 
-Type 'django-admin help <subcommand>' for help on a specific subcommand.
+Type 'manage.py help <subcommand>' for help on a specific subcommand.
 
 Available subcommands:
+
+[auth]
+    changepassword
+    createsuperuser
+
+[contenttypes]
+    remove_stale_contenttypes
 
 [django]
     check
@@ -70,7 +77,6 @@ Available subcommands:
     makemigrations
     migrate
     optimizemigration
-    runserver
     sendtestemail
     shell
     showmigrations
@@ -82,7 +88,15 @@ Available subcommands:
     startproject
     test
     testserver
-Note that only Django core commands are listed as settings are not properly configured (error: Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.).
+
+[sessions]
+    clearsessions
+
+[staticfiles]
+    collectstatic
+    findstatic
+    runserver
+
 ```
 
 # Create Project

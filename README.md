@@ -337,3 +337,12 @@ Migrations for 'projectmanagement':
 --
 CREATE TABLE `projectmanagement_category` (`id` bigint AUTO_INCREMENT NOT NULL PRIMARY KEY, `category_name` varchar(120) NOT NULL);
 ```
+# migrate the migration file
+<b>Command: python manage.py migrate [app_name] [migration_name] </b>
+```
+(venv) I:\mydjangofirst\mydjangodoc>python manage.py migrate projectmanagement 0001
+Operations to perform:
+  Target specific migration: 0001_initial, from projectmanagement
+Running migrations:
+  Applying projectmanagement.0001_initial... OK
+```

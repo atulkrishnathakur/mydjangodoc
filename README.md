@@ -408,5 +408,6 @@ For example, if you had organic.py and synthetic.py in the models directory:
 ```
 from .organic import Person
 from .synthetic import Robot
+
 ```
 <p>Explicitly importing each model rather than using from .models import * has the advantages of not cluttering the namespace, making code more readable, and keeping code analysis tools useful.</p>

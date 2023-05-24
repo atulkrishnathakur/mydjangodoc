@@ -398,5 +398,15 @@ class Category(models.Model):
     
     class Meta:
         db_table = 'categories'
-
 ```
+# Organizing models in a package
+<p>The manage.py startapp command creates an application structure that includes a models.py file. If you have many models, organizing them in separate files may be useful.</p>
+<p>To do so, create a models package. Remove models.py and create a myapp/models/ directory with an __init__.py file and the files to store your models. You must import the models in the __init__.py file.
+For example, if you had organic.py and synthetic.py in the models directory:
+</p>
+<p>myapp/models/__init__.py</p>
+```
+from .organic import Person
+from .synthetic import Robot
+```
+<p>Explicitly importing each model rather than using from .models import * has the advantages of not cluttering the namespace, making code more readable, and keeping code analysis tools useful.</p>

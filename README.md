@@ -434,3 +434,16 @@ from .synthetic import Robot
 
 ```
 <p>Explicitly importing each model rather than using from .models import * has the advantages of not cluttering the namespace, making code more readable, and keeping code analysis tools useful.</p>
+
+# create super user 
+```
+(venv) I:\mydjangofirst\mydjangodoc>python manage.py createsuperuser
+Username (leave blank to use 'atul'): atulkrishnathakur
+Email address: atul@yopmail.com
+Password:
+Password (again):
+This password is too common.
+This password is entirely numeric.
+Bypass password validation and create user anyway? [y/N]: y
+Superuser created successfully.
+```

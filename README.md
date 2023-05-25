@@ -372,6 +372,22 @@ class Category(models.Model):
 Note: cat_id = models.BigAutoField(primary_key=True) used to create auto incremented field with primary key. field name is cat_id
 Note: db_table = 'categories' used in meta class to create table name. Here table name is categories.
 
+# db_column used to write database table field name according to you
+```
+from django.db import models
+
+class Category(models.Model):
+    cat_id = models.BigAutoField(primary_key=True)
+    category_name = models.CharField(max_length=120,null=True)
+    category_code = models.CharField(max_length=50,null=True,unique=True)
+    description = models.CharField(max_length=50,null=True)
+    sh_description = models.CharField(max_length=10,null=True,db_column='short_description')
+    class Meta:
+        db_table = 'categories'
+```
+Note: db_column used to create field name according to you. <b>sh_description = models.CharField(max_length=10,null=True,db_column='short_description')</b> according to this code database table field name will be short_description not sh_description. If you do not used db_column then database field name will be sh_description.<br>
+Note: db_column is very usefull when you want to create database table filed name from python keyword. And it is also usefull when you create field name for foreign key because Django automatically append <b>_id</b> in field name.
+
 # Create a nullable field
 Note: write code in models.py file of app<br>
 If null=True, Django will store empty values as NULL in the database. Default is False.

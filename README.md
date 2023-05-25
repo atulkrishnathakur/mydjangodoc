@@ -108,7 +108,7 @@ django-admin startproject projectName
 (venv) I:\mydjangofirst>
 ```
 
-# Run the Django Project
+# Run the Django Project (Start the development server)
 <b>Command:</b>
 python manage.py runserver
 ```
@@ -447,3 +447,5 @@ This password is entirely numeric.
 Bypass password validation and create user anyway? [y/N]: y
 Superuser created successfully.
 ```
+start the development server by <b>python manage.py runserver</b> command. Now, open a Web browser and go to “/admin/” on your local domain – e.g., http://localhost:8000/admin/. You should see the admin’s login screen
+

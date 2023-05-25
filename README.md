@@ -449,3 +449,15 @@ Superuser created successfully.
 ```
 start the development server by <b>python manage.py runserver</b> command. Now, open a Web browser and go to “/admin/” on your local domain – e.g., http://localhost:8000/admin/. You should see the admin’s login screen
 
+# how to add model to show in Django adminstration for super user
+Step1: open the admin.py file from app. here projectmanagement/admin.py
+Step2: register the model in admin.py file
+```
+from django.contrib import admin
+
+# Register your models here.
+from .models.categories import Category
+
+admin.site.register(Category)
+```
+

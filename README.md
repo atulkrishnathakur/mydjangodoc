@@ -328,6 +328,14 @@ Migrations for 'projectmanagement':
   projectmanagement\migrations\0001_initial.py
     - Create model Category
 ```
+# create the meaningfull migration file name
+--name is used to create meaningfull migration file name
+```
+(venv) I:\mydjangofirst\mydjangodoc>python manage.py makemigrations --name=create_long_description_field projectmanagement
+Migrations for 'projectmanagement':
+  projectmanagement\migrations\0025_create_long_description_field.py
+    - Add field lg_description to category
+```
 # Show the sql query of migration
 <b>Command: python manage.py sqlmigrate [app_name] [migration_name]</b>
 ```

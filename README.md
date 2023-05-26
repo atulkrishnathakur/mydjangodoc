@@ -460,4 +460,6 @@ from .models.categories import Category
 
 admin.site.register(Category)
 ```
-
+# open the admin login screen 
+http://localhost/admin 
+<img src='./mdimg/django_login_admin.PNG'>

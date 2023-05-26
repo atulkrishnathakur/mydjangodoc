@@ -462,4 +462,4 @@ admin.site.register(Category)
 ```
 # open the admin login screen 
 http://localhost/admin 
-<img src='mdimg/django_login_admin.PNG'>
+<img src='django_login_admin.png'>

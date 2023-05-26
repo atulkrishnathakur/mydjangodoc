@@ -463,3 +463,29 @@ admin.site.register(Category)
 # open the admin login screen 
 http://localhost/admin <br>
 enter the username and password
+
+# show the data instead of Category object (1) 
+When you display a Model as a list, Django displays each record as the string representation of the record object, which in our case is "Member object (1)", "Member object(2)". <br>
+
+To change this to a more reader-friendly format, we have two choices: <br>
+
+Change the string representation function, __str__() of the Member Model <br>
+Set the list_details property of the Member Model <br>
+
+To change the string representation, we have to define the __str__() function of the models, like this:
+```
+from django.db import models
+
+class Category(models.Model):
+    cat_id = models.BigAutoField(primary_key=True)
+    category_name = models.CharField(max_length=120,null=True)
+    category_code = models.CharField(max_length=50,null=True,unique=True)
+    description = models.CharField(max_length=50,null=True)
+    sh_description = models.CharField(max_length=10,null=True,db_column='short_description')
+    lg_description = models.CharField(max_length=20,null=True,db_column='long_description')
+    class Meta:
+        db_table = 'categories'
+    def __str__(self):
+        return f"{self.categoryname} {self.description}"
+ 
+```

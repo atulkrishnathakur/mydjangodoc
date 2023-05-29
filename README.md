@@ -315,44 +315,44 @@ It create the migrations for all apps.<br>
 <b>Command: python manage.py makemigrations</b>
 ```
 (venv) I:\mydjangofirst\mydjangodoc>python manage.py makemigrations
-Migrations for 'projectmanagement':
-  projectmanagement\migrations\0001_initial.py
+Migrations for 'productmanagement':
+  productmanagement\migrations\0001_initial.py
     - Create model Category
 ```
 # create migration for a specific app
 It create the migrations for a specific app.<br>
 <b>Command: python manage.py makemigrations [app_name]</b>
 ```
-(venv) I:\mydjangofirst\mydjangodoc>python manage.py makemigrations projectmanagement
-Migrations for 'projectmanagement':
-  projectmanagement\migrations\0001_initial.py
+(venv) I:\mydjangofirst\mydjangodoc>python manage.py makemigrations productmanagement
+Migrations for 'productmanagement':
+  productmanagement\migrations\0001_initial.py
     - Create model Category
 ```
 # create the meaningfull migration file name
 --name is used to create meaningfull migration file name
 ```
-(venv) I:\mydjangofirst\mydjangodoc>python manage.py makemigrations --name=create_long_description_field projectmanagement
-Migrations for 'projectmanagement':
-  projectmanagement\migrations\0025_create_long_description_field.py
+(venv) I:\mydjangofirst\mydjangodoc>python manage.py makemigrations --name=create_long_description_field productmanagement
+Migrations for 'productmanagement':
+  productmanagement\migrations\0025_create_long_description_field.py
     - Add field lg_description to category
 ```
 # Show the sql query of migration
 <b>Command: python manage.py sqlmigrate [app_name] [migration_name]</b>
 ```
-(venv) I:\mydjangofirst\mydjangodoc>python manage.py sqlmigrate projectmanagement 0001
+(venv) I:\mydjangofirst\mydjangodoc>python manage.py sqlmigrate productmanagement 0001
 --
 -- Create model Category
 --
-CREATE TABLE `projectmanagement_category` (`id` bigint AUTO_INCREMENT NOT NULL PRIMARY KEY, `category_name` varchar(120) NOT NULL);
+CREATE TABLE `productmanagement_category` (`id` bigint AUTO_INCREMENT NOT NULL PRIMARY KEY, `category_name` varchar(120) NOT NULL);
 ```
 # migrate the migration file
 <b>Command: python manage.py migrate [app_name] [migration_name] </b>
 ```
-(venv) I:\mydjangofirst\mydjangodoc>python manage.py migrate projectmanagement 0001
+(venv) I:\mydjangofirst\mydjangodoc>python manage.py migrate productmanagement 0001
 Operations to perform:
-  Target specific migration: 0001_initial, from projectmanagement
+  Target specific migration: 0001_initial, from productmanagement
 Running migrations:
-  Applying projectmanagement.0001_initial... OK
+  Applying productmanagement.0001_initial... OK
 ```
 # Create a simple model
 Write code in models.py file of app

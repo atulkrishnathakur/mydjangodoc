@@ -464,7 +464,7 @@ admin.site.register(Category)
 http://localhost/admin <br>
 enter the username and password
 
-# show the data instead of Category object (1) 
+# show the data instead of Category object (1) in Admin
 When you display a Model as a list, Django displays each record as the string representation of the record object, which in our case is "Member object (1)", "Member object(2)". <br>
 
 To change this to a more reader-friendly format, we have two choices: <br>
@@ -488,4 +488,22 @@ class Category(models.Model):
     def __str__(self):
         return f"{self.categoryname} {self.description}"
  
+```
+# Show the list data instead of Category object (1) in Admin
+1. If you want to show the list of module in admin then write code in **productmanagement/admin.py**
+2. create a class CategoryListAdmin
+3. list_display tuple with DB table fielname. Note list_display name do not change
+4. register create class with and model
+```
+from django.contrib import admin
+
+# Register your models here.
+from .models.categories import Category
+
+#admin.site.register(Category)
+
+class CategoryListAdmin(admin.ModelAdmin):
+  list_display = ("category_name", "category_code", "description",)
+  
+admin.site.register(Category, CategoryListAdmin)
 ```

@@ -509,3 +509,7 @@ admin.site.register(Category, CategoryListAdmin)
 ```
 # view in Django
 A view function, or view for short, is a Python function that takes a web request and returns a web response. This response can be the HTML contents of a web page, or a redirect, or a 404 error, or an XML document, or an image . . . or anything, really.
+
+# Types of views in django
+1. Function-Based Views
+2. Class-Based Views

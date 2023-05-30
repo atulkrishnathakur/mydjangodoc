@@ -508,8 +508,29 @@ class CategoryListAdmin(admin.ModelAdmin):
 admin.site.register(Category, CategoryListAdmin)
 ```
 # view in Django
-A view function, or view for short, is a Python function that takes a web request and returns a web response. This response can be the HTML contents of a web page, or a redirect, or a 404 error, or an XML document, or an image . . . or anything, really.
+A view function, or view for short, is a Python function that takes a web request and returns a web response. This response can be the HTML contents of a web page, or a redirect, or a 404 error, or an XML document, or an image . . . or anything, really. <br>
+When you create an app then <b>views.py</b> file will created by django with the following code.
+```
+from django.shortcuts import render
+
+# Create your views here.
+
+```
 
 # Types of views in django
 1. Function-Based Views
 2. Class-Based Views
+
+# Function based views
+A view is a function that takes an HttpRequest object and returns an HttpResponse object.<br>
+
+write a simple view function in *productmanagement/views.py*
+```
+from django.shortcuts import render
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse('<h1>Hello World</h1>')
+```
+
+

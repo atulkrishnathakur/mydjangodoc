@@ -568,7 +568,7 @@ Note1: Type http://localhost:8000/product/ url in browser <br>
 Note2: Type http://localhost:8000/product/about/ url in browser
 
 # configure the template directory
-## create a base template directory
+**create a base template directory**
    1. create a **templates** directory in project directory like *mydjangodoc/templates/*. This is the sibling of manage.py file.
    2. Now configrue the base templates directory
    3. open the setting.py file and write bellow code
@@ -589,4 +589,40 @@ Note2: Type http://localhost:8000/product/about/ url in browser
     },
 ]
    ```
-  
+**create the templates for app**
+1. create the **templates** directory in app directory like *productmanagement/templates/*
+2. create the **productmanagement** directory inside template directory like *productmanagement/templates/productmanagement/*
+3. create the home.html file like *productmanagement/templates/productmanagement/home.html*
+4. create the about.html file like *productmanagement/templates/productmanagement/about.html*
+
+# render tempolate file from view
+*productmanagement/views.py*
+```
+from django.shortcuts import render
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse('<h1>Hello World</h1>')
+
+def about(request):
+    return HttpResponse('<h1>About</h1>')
+    
+def home_temp(request):
+    return render(request,'productmanagement/home.html')
+    
+def about_temp(request):
+    return render(request,'productmanagement/about.html')    
+```
+
+*productmanagement/urls.py*
+```
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.home, name='home'),
+    path('about/', views.about, name='about'),
+    path('home-temp/', views.home_temp, name='hometemp'),
+    path('about-temp/', views.about_temp, name='abouttemp'),
+]
+```

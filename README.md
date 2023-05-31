@@ -564,3 +564,5 @@ urlpatterns = [
     path('product/',include('productmanagement.urls')),
 ]
 ```
+Note1: Type http://localhost:8000/product/ url in browser
+Note2: Type http://localhost:8000/product/about/ url in browser

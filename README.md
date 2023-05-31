@@ -525,12 +525,42 @@ from django.shortcuts import render
 A view is a function that takes an HttpRequest object and returns an HttpResponse object.<br>
 
 write a simple view function in *productmanagement/views.py*
-```
-from django.shortcuts import render
+```from django.shortcuts import render
 from django.http import HttpResponse
 
 def home(request):
     return HttpResponse('<h1>Hello World</h1>')
+
+def about(request):
+    return HttpResponse('<h1>About</h1>')
 ```
 
+# create urls in app directory
+1. create urls.py file in app directory like *productmanagement/urls.py*
+2. Write bellow code in urls.py file of directory like *productmanagement/urls.py*
+```
+from django.urls import path
+from . import views
 
+urlpatterns = [
+    path('', views.home, name='home'),
+    path('about/', views.about, name='about'),
+]
+```
+Note1: The path() function is passed four arguments, two required: route and view, and two optional: kwargs, and name.<br>
+**route**: Route is a string that contains a URL pattern.<br>
+**view**: When Django finds a matching pattern, it calls the specified view function with an HttpRequest object as the first argument and any “captured” values from the route as keyword arguments.<br>
+**kwargs**: Arbitrary keyword arguments can be passed in a dictionary to the target view.<br>
+**name**: Naming your URL lets you refer to it unambiguously from elsewhere in Django, especially from within templates. This powerful feature allows you to make global changes to the URL patterns of your project while only touching a single file.
+
+# include urls in urls.py file of project
+1. write bellow code in urls.py file of project like *mydjangodoc/urls.py*
+```
+from django.contrib import admin
+from django.urls import path,include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('product/',include('productmanagement.urls')),
+]
+```

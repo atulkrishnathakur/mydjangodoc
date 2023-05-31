@@ -554,7 +554,7 @@ Note1: The path() function is passed four arguments, two required: route and vie
 **name**: Naming your URL lets you refer to it unambiguously from elsewhere in Django, especially from within templates. This powerful feature allows you to make global changes to the URL patterns of your project while only touching a single file.
 
 # include urls in urls.py file of project
-1. write bellow code in urls.py file of project like *mydjangodoc/urls.py*
+1. write bellow code in urls.py file of project like *mydjangodoc/mydjangodoc/urls.py*
 ```
 from django.contrib import admin
 from django.urls import path,include
@@ -564,5 +564,29 @@ urlpatterns = [
     path('product/',include('productmanagement.urls')),
 ]
 ```
-Note1: Type http://localhost:8000/product/ url in browser
+Note1: Type http://localhost:8000/product/ url in browser <br>
 Note2: Type http://localhost:8000/product/about/ url in browser
+
+# configure the template directory
+## create a base template directory
+   1. create a **templates** directory in project directory like *mydjangodoc/templates/*. This is the sibling of manage.py file.
+   2. Now configrue the base templates directory
+   3. open the setting.py file and write bellow code
+   ```
+   TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+   ```
+  

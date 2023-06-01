@@ -626,3 +626,30 @@ urlpatterns = [
     path('about-temp/', views.about_temp, name='abouttemp'),
 ]
 ```
+
+# extends the base html template
+1. creata a base html file in project template directory like *mydjangodoc/templates/productmanagementbase.html
+```
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Title</title>
+    </head>
+    <body>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
+
+```
+2. extends  *productmangementbase.html* into *productmanagement/templates/productmanagement/home.html*
+```
+{% extends 'productmangementbase.html' %}
+{% block content %}
+<h1>Home Page</h1>
+{% endblock content %}
+```
+
+note: "content" is the name of block

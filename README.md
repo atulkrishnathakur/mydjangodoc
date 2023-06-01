@@ -653,3 +653,33 @@ urlpatterns = [
 ```
 
 note: "content" is the name of block
+
+
+# include common  html template
+1. creata a base html file in project template directory like *mydjangodoc/templates/productmanagementbase.html
+```
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Title</title>
+    </head>
+    <body>
+        {% block content %} {% endblock %}
+		{% block footercontent %} {% endblock %}
+    </body>
+</html>
+```
+2. extends  *productmangementbase.html* into *productmanagement/templates/productmanagement/home.html*
+3. include the footer.html file
+```
+{% extends 'productmanagementbase.html' %}
+{% block content %}
+<h1>Home Page</h1>
+{% endblock content %}
+
+{% block footercontent %}
+{% include "productmanagement/include/footer.html" %}
+{% endblock footercontent %}
+```

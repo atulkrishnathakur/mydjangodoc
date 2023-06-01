@@ -591,7 +591,7 @@ Note2: Type http://localhost:8000/product/about/ url in browser
    ```
 **create the templates for app**
 1. create the **templates** directory in app directory like *productmanagement/templates/*
-2. create the **productmanagement** directory inside template directory like *productmanagement/templates/productmanagement/*
+2. create the **productmanagement** directory inside templates directory like *productmanagement/templates/productmanagement/*
 3. create the home.html file like *productmanagement/templates/productmanagement/home.html*
 4. create the about.html file like *productmanagement/templates/productmanagement/about.html*
 
@@ -673,6 +673,7 @@ note: "content" is the name of block
 ```
 2. extends  *productmangementbase.html* into *productmanagement/templates/productmanagement/home.html*
 3. include the footer.html file
+4. if a common html in full project then create html file for include in template directory of project
 ```
 {% extends 'productmanagementbase.html' %}
 {% block content %}
@@ -683,3 +684,74 @@ note: "content" is the name of block
 {% include "productmanagement/include/footer.html" %}
 {% endblock footercontent %}
 ```
+
+# static configuration
+1. write the code in setting.py file
+```
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+```
+
+2. create the **static** directory in app directory like *productmanagement/static/*
+3. create the **productmanagement** directory inside static directory like *productmanagement/static/productmanagement/*
+4. create the **css** directory inside productmanagement directory like *productmanagement/static/productmanagement/css/*
+5. create the **style.css** directory inside css directory like *productmanagement/static/productmanagement/css/style.css*
+
+Note: same way use for js and image
+
+*productmanagement/static/productmanagement/css/style.css*
+```
+.head{
+	background-color:red;
+	color:white;
+}
+```
+
+*productmanagement/static/productmanagement/js/main.js*
+```
+console.log("Hello World");
+```
+
+*mydjangodoc/templates/productmanagementbase.html*
+```
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block contenttitle %}{% endblock contenttitle %}</title>
+    </head>
+    <body>
+	    {% block csscontent %} {% endblock %}
+        {% block content %} {% endblock %}
+		{% block footercontent %} {% endblock %}
+		{% block jscontent %} {% endblock %}
+    </body>
+</html>
+```
+*productmanagement/templates/productmanagement/home.html*
+```
+{% extends 'productmanagementbase.html' %}
+{% load static %}
+
+{% block csscontent %} 
+<link rel="stylesheet" href="{% static 'productmanagement/css/style.css' %}">
+{% endblock csscontent %}
+
+{% block contenttitle %} Home Page {% endblock contenttitle %}
+
+{% block content %}
+<h1 class="head">Home Page</h1>
+{% endblock content %}
+
+{% block jscontent %} 
+<script src="{% static 'productmanagement/js/main.js' %}" ></script>
+{% endblock jscontent %}
+
+{% block footercontent %}
+{% include "productmanagement/include/footer.html" %}
+{% endblock footercontent %}
+```
+Note: extendes will be the first element.
+Note: If you want to create common statics then create the static directory in project like in *mydjangodoc/static/css/style.css*
+Note: If you have small project then you can use static from project directory but you have multiple app in your project then create statics in app.

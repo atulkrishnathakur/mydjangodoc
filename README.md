@@ -755,3 +755,28 @@ console.log("Hello World");
 Note: extendes will be the first element.
 Note: If you want to create common statics then create the static directory in project like in *mydjangodoc/static/css/style.css*
 Note: If you have small project then you can use static from project directory but you have multiple app in your project then create statics in app.
+
+# Organizing views in a package
+step-1: remove views.py file from app directory<br>
+step-2: create the views directory in app<br>
+step-3: create the __init__.py file in app directory like *productmanagement/views/__init__.py*<br>
+step-4: create the files in views directory like *productmanagement/views/product.py*<br>
+step-5: Import all view file in __init__.py file 
+```
+from .category import *
+from .product import *
+```
+step-6: import the views from views directory in *productmanagement/urls.py* 
+```
+from django.urls import path
+from .views import category
+from .views import product
+
+urlpatterns = [
+    path('', category.home, name='home'),
+    path('about/', category.about, name='about'),
+    path('home-temp/', category.home_temp, name='hometemp'),
+    path('about-temp/', category.about_temp, name='abouttemp'),
+    path('showdata/', category.show_data, name='showdata'),
+]
+```

@@ -1,0 +1,38 @@
+{% extends 'productmanagementbase.html' %}
+{% load static %}
+
+{% block csscontent %} 
+<link rel="stylesheet" href="{% static 'productmanagement/css/style.css' %}">
+{% endblock csscontent %}
+
+{% block contenttitle %} Home Page {% endblock contenttitle %}
+
+{% block content %}
+<h1 class="head">Our Data</h1>
+<table style="width:100%;">
+   <tr>
+        <th>Id</th>
+		<th>Math Type</th>
+		<th>author</th>
+		<th>content</th>
+		<th>Published At</th>
+   </tr>
+   
+   {% for book in books %} 
+     <tr>
+        <td></td>
+		<td>{{book.math_type}}</td>
+		<td>{{book.author}}</td>
+		<td>{{book.content}}</td>
+		<td>{{book.published_at}}</td>
+	 </tr>
+   {% endfor %}
+</table>
+
+{% endblock content %}
+{% block jscontent %} 
+<script src="{% static 'productmanagement/js/main.js' %}" ></script>
+{% endblock jscontent %}
+{% block footercontent %}
+{% include "productmanagement/include/footer.html" %}
+{% endblock footercontent %}

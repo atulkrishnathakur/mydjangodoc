@@ -1,0 +1,57 @@
+{% extends 'productmanagementbase.html' %}
+{% load static %}
+
+{% block csscontent %} 
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+<link rel="stylesheet" href="{% static 'productmanagement/css/style.css' %}">
+{% endblock csscontent %}
+
+{% block contenttitle %} Home Page {% endblock contenttitle %}
+
+{% block content %}
+<div class="container mt-3">
+ <h1>Create Category</h1>
+  <form action={% url 'savecategory' %}  method="POST">
+      {% csrf_token %}
+    <div class="row">
+      <div class="col">
+	    <label for="category_name">Category Name:</label>
+        <input type="text" class="form-control" placeholder="Enter Category Name" id="category_name" name="category_name">
+      </div>
+      <div class="col">
+	    <label for="description">Category Code:</label>
+        <input type="text" class="form-control" placeholder="Enter Category Code" id="category_code" name="category_code">
+      </div>
+	 <div>
+     <div class="row">	 
+	  <div class="col">
+        <label for="description">Description:</label>
+        <textarea class="form-control" rows="5" id="description" name="description"></textarea>
+      </div>
+	  <div class="col">
+        <label for="description">Long Description:</label>
+        <textarea class="form-control" rows="5" id="description" name="long_description"></textarea>
+      </div>
+	 </div> 
+	 <div class="row">
+	  <div class="col">
+        <label for="description">Short Description:</label>
+        <textarea class="form-control" rows="5" id="description" name="short_description"></textarea>
+      </div>
+	  <div class="col mt-5">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+	 </div> 
+    </div>
+  </form>
+</div>
+{% endblock content %}
+
+{% block jscontent %} 
+<script src="{% static 'productmanagement/js/main.js' %}" ></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+{% endblock jscontent %}
+
+{% block footercontent %}
+{% include "productmanagement/include/footer.html" %}
+{% endblock footercontent %}

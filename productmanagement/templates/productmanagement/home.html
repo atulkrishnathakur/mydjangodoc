@@ -1,0 +1,20 @@
+{% extends 'productmanagementbase.html' %}
+{% load static %}
+
+{% block csscontent %} 
+<link rel="stylesheet" href="{% static 'productmanagement/css/style.css' %}">
+{% endblock csscontent %}
+
+{% block contenttitle %} Home Page {% endblock contenttitle %}
+
+{% block content %}
+<h1 class="head">Home Page</h1>
+{% endblock content %}
+
+{% block jscontent %} 
+<script src="{% static 'productmanagement/js/main.js' %}" ></script>
+{% endblock jscontent %}
+
+{% block footercontent %}
+{% include "productmanagement/include/footer.html" %}
+{% endblock footercontent %}

@@ -10,4 +10,5 @@ urlpatterns = [
     path('showdata/', category.show_data, name='showdata'),
     path('create-category/', category.create_category, name='createcategory'),
     path('save-category/', category.save_category, name='savecategory'),
+    path('category-list/', category.category_list, name='categorylist'),
 ]

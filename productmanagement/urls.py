@@ -11,4 +11,7 @@ urlpatterns = [
     path('create-category/', category.create_category, name='createcategory'),
     path('save-category/', category.save_category, name='savecategory'),
     path('category-list/', category.category_list, name='categorylist'),
+    path('category-edit/<int:id>', category.category_edit, name='categoryedit'),
+    path('category-update', category.category_update, name='categoryupdate'),
+    path('category-delete/<int:id>', category.category_delete, name='categorydelete'),
 ]

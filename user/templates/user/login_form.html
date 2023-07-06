@@ -1,0 +1,42 @@
+{% extends 'userbase.html' %}
+{% load static %}
+
+{% block csscontent %} 
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+<link rel="stylesheet" href="{% static 'productmanagement/css/style.css' %}">
+{% endblock csscontent %}
+
+{% block contenttitle %} Authentication {% endblock contenttitle %}
+
+{% block content %}
+<div class="container mt-3">
+ <h1>Login</h1>
+  <form action={% url 'loginsubmit' %}  method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+    <div class="row">
+      <div class="col">
+	    <label for="user_name">User Name:</label>
+        <input type="text" class="form-control" placeholder="Enter User Name" id="user_name" name="username">
+      </div>
+      <div class="col">
+	    <label for="password">Password:</label>
+        <input type="text" class="form-control" placeholder="Enter Password" id="password" name="password">
+      </div>
+	 <div>
+	 
+	 <div class="row">
+	  
+	  <div class="col mt-5">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+	 </div> 
+    </div>
+  </form>
+</div>
+{% endblock content %}
+
+{% block jscontent %} 
+<script src="{% static 'productmanagement/js/main.js' %}" ></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+{% endblock jscontent %}
+

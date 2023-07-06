@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.shortcuts import redirect
 from productmanagement.models.categories import Category
+from django.core.files.storage import FileSystemStorage
 
 def home(request):
     return HttpResponse('<h1>Hello World</h1>')
@@ -48,8 +49,12 @@ def save_category(request):
             description = request.POST['description']
             longdescription = request.POST['long_description']
             short_description = request.POST['short_description']
-            image = request.FILES['catimage']
-            catobj = Category(category_name=category_name,category_code=category_code,description=description,lg_description=longdescription,sh_description=short_description)
+            myimage = request.FILES['catimage']
+            imagename = myimage.name
+            imgmediapath = "category/"+imagename
+            fs = FileSystemStorage()
+            imagefile = fs.save(imgmediapath, myimage)
+            catobj = Category(category_name=category_name,category_code=category_code,description=description,lg_description=longdescription,sh_description=short_description,image=imagefile)
             catobj.save()
             return redirect('categorylist')
     except Exception as e:
@@ -57,13 +62,15 @@ def save_category(request):
         
 def category_list(request):
     try:
-        if request.method == "GET":
+        if request.method == "GET" and request.user.is_authenticated:
             categoryall = Category.objects.all()
             template = loader.get_template("productmanagement/category_list.html")
             context = {
                 'categories': categoryall,
             }
             return HttpResponse(template.render(context, request))
+        else:
+            return redirect('login_form')        
     except Exception as e:
         print(e)
         

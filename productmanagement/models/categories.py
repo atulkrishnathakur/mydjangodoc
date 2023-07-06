@@ -12,9 +12,8 @@ class Category(models.Model):
     status = models.SmallIntegerField(null=True,default=1)
     created_at = models.DateTimeField(auto_now_add=True,null=True)
     updated_at = models.DateTimeField(auto_now=True,null=True)
-    image = models.ImageField(upload_to="img/category",null=True,db_column='image')
+    image = models.ImageField(upload_to='category_img/',null=True,db_column='image')
     class Meta:
         db_table = 'categories'
     def __str__(self):
         return f"{self.category_name} {self.description}"
- 

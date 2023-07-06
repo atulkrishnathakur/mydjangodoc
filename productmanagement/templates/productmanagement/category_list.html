@@ -21,6 +21,7 @@
         <th>Category Code</th>
         <th>Description</th>
 		<th>Status</th>
+		<th>Image</th>
 		<th>Action</th>
       </tr>
     </thead>
@@ -36,6 +37,7 @@
 		         Active 
 			 {% endif %}
 		  </td>
+		  <td>{% if category.image == None %} {% elif category.image == "" %} {% else %} <img src="{{category.image.url}}" width="100" > {% endif %}</td>
 		  <td><a href="{% url 'categoryedit' category.cat_id %}">Edit</a> <a href="{% url 'categorydelete' category.cat_id %}">Delete</a></td>
 		</tr>
       {% endfor%}

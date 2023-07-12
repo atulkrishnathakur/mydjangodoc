@@ -10,17 +10,37 @@
 
 {% block content %}
 <div class="container mt-3">
- <h1>Login</h1>
-  <form action={% url 'loginsubmit' %}  method="POST" enctype="multipart/form-data">
+ <h1>Sign Up</h1>
+  <form action={% url 'signupsave' %}  method="POST" enctype="multipart/form-data">
       {% csrf_token %}
     <div class="row">
       <div class="col">
-	    <label for="user_name">User Name:</label>
-        <input type="text" class="form-control" placeholder="Enter User Name" id="user_name" name="username">
+	    <label for="user_name">First Name:</label>
+        <input type="text" class="form-control" placeholder="Enter User Name" id="user_name" name="firstname">
+		{% if errors.first_name %}
+		{{errors.first_name}}
+		{% endif %}
+      </div>
+	  <div class="col">
+	    <label for="user_name">Last Name:</label>
+        <input type="text" class="form-control" placeholder="Enter User Name" id="last_name" name="lastname">
+		{% if errors.last_name %}
+		{{errors.last_name}}
+		{% endif %}
+      </div>
+	  <div class="col">
+	    <label for="user_name">Email:</label>
+        <input type="text" class="form-control" placeholder="Enter User Name" id="email" name="email">
+		{% if errors.email %}
+		{{errors.email}}
+		{% endif %}
       </div>
       <div class="col">
 	    <label for="password">Password:</label>
         <input type="text" class="form-control" placeholder="Enter Password" id="password" name="password">
+		{% if errors.password %}
+		{{errors.password}}
+		{% endif %}
       </div>
 	 <div>
 	 
@@ -29,13 +49,11 @@
 	  <div class="col mt-5">
         <button type="submit" class="btn btn-primary">Save</button>
       </div>
-	 </div> 
+	 </div>  
     </div>
   </form>
-  
-  <div><a href="{% url 'signup' %}"> Sign Up </a></div>
-	 
- 
+  <div><a href="{% url 'login_form' %}"> Login </a></div>
+
 </div>
 {% endblock content %}
 

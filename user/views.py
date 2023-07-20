@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanentRedirect
 from django.template import loader
 from django.shortcuts import redirect
 from django.core.files.storage import FileSystemStorage
@@ -53,6 +53,8 @@ def sign_in(request):
         if user:
             login(request, user)
             return redirect('categorylist')
+        else:
+            return redirect('login_form')    
 def sign_out(request):
     logout(request)
     return redirect('login_form')            

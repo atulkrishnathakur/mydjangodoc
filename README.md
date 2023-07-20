@@ -780,3 +780,68 @@ urlpatterns = [
     path('showdata/', category.show_data, name='showdata'),
 ]
 ```
+
+# Edit Admin 
+1. click on username link in admin to open and edit user details
+2. Here you can add an user to group 
+3. Here You can add user to permision
+
+
+# Create Group for Users and Permission
+1. click on add group in admin 
+2. Enter Name: ....name of group....
+3. Save
+
+# How to write own config in settings in Django
+In Django, you can create your own configuration settings using the settings.py file, which is a Python module that holds all the configuration options for your Django project. Here's a step-by-step guide on how to write your own config in Django:
+
+1. Open the settings.py file:
+First, locate the settings.py file in your Django project. It is typically located in the project's root directory.
+
+2. Define your custom configuration settings:
+In the settings.py file, you can add your own configuration settings as attributes of the module. You can use any Python variable name to define your settings. For example, let's create a custom setting called "MY_CUSTOM_SETTING":
+
+```python
+# settings.py
+MY_CUSTOM_SETTING = 'Hello, this is my custom setting!'
+```
+
+3. Use the custom setting in your code:
+Once you have defined your custom setting, you can use it in your Django project code. For example, let's say you want to use the "MY_CUSTOM_SETTING" in one of your views:
+
+```python
+# views.py
+from django.conf import settings
+from django.http import HttpResponse
+
+def my_view(request):
+    custom_setting_value = settings.MY_CUSTOM_SETTING
+    return HttpResponse(custom_setting_value)
+```
+
+4. Accessing the custom setting from other parts of the project:
+You can access the custom setting from any part of your Django project by importing the `settings` object as shown above. This includes views, models, forms, middleware, and other modules within your project.
+
+5. Default values for custom settings:
+You can provide default values for your custom settings in case they are not set in the settings.py file. This can be done using the `getattr` function along with the `default` argument:
+
+```python
+# settings.py
+MY_CUSTOM_SETTING = getattr(settings, 'MY_CUSTOM_SETTING', 'This is the default value.')
+```
+
+By using `getattr`, Django will first attempt to retrieve the setting from the settings.py file, and if it's not found, it will use the default value you specified.
+
+6. Using environment variables:
+For sensitive information or configurations that may vary depending on the deployment environment, it is a good practice to use environment variables. Django allows you to read environment variables as custom settings. To do this, you need to import the `os` module and use `os.environ` to access environment variables:
+
+```python
+# settings.py
+import os
+
+MY_SECRET_KEY = os.environ.get('MY_SECRET_KEY', 'default_secret_key')
+```
+
+By using this approach, you can set the value of `MY_SECRET_KEY` as an environment variable on your server, which can be kept separate from your source code repository.
+
+Remember to restart your Django server or development environment whenever you make changes to the settings.py file for the changes to take effect. Also, make sure to handle sensitive information securely and follow best practices for managing configurations in production environments.

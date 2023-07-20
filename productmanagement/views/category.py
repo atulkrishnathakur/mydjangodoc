@@ -4,6 +4,9 @@ from django.template import loader
 from django.shortcuts import redirect
 from productmanagement.models.categories import Category
 from django.core.files.storage import FileSystemStorage
+from django.contrib.auth.models import Permission
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
 
 def home(request):
     return HttpResponse('<h1>Hello World</h1>')
@@ -37,7 +40,7 @@ def show_data(request):
         'books': mybooks
     }
     return render(request,'productmanagement/showdata.html',context)
-    
+       
 def create_category(request):
     return render(request,'productmanagement/create_category.html')
     
@@ -60,13 +63,16 @@ def save_category(request):
     except Exception as e:
         print(e)
         
+@login_required        
 def category_list(request):
     try:
-        if request.method == "GET" and request.user.is_authenticated:
+        if request.method == "GET":
+            custom_setting_value = settings.MY_CUSTOM_SETTING
             categoryall = Category.objects.all()
             template = loader.get_template("productmanagement/category_list.html")
             context = {
                 'categories': categoryall,
+                'custom_setting_value': custom_setting_value,
             }
             return HttpResponse(template.render(context, request))
         else:

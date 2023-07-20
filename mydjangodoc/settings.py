@@ -131,3 +131,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # upload images
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
+
+MY_CUSTOM_SETTING = 'Hello, this is my custom setting!'

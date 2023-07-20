@@ -7,6 +7,7 @@ from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.models import Permission
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from productmanagement.constants import MAXIMUM_RETRIES, DEFAULT_USERNAME, VALID_STATUSES
 
 def home(request):
     return HttpResponse('<h1>Hello World</h1>')
@@ -68,11 +69,17 @@ def category_list(request):
     try:
         if request.method == "GET":
             custom_setting_value = settings.MY_CUSTOM_SETTING
+            max_retries = MAXIMUM_RETRIES
+            default_username = DEFAULT_USERNAME
+            valid_statuses = VALID_STATUSES
             categoryall = Category.objects.all()
             template = loader.get_template("productmanagement/category_list.html")
             context = {
                 'categories': categoryall,
                 'custom_setting_value': custom_setting_value,
+                'max_retries': max_retries,
+                'default_username': default_username,
+                'valid_statuses': valid_statuses
             }
             return HttpResponse(template.render(context, request))
         else:

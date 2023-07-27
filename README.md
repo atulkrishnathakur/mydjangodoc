@@ -907,3 +907,101 @@ By following this approach, you can easily manage your constants in one place, m
 Remember that constants defined in this manner are still mutable in Python. If you want to enforce immutability, you can use `tuple` or `frozenset` for lists and sets, respectively. For dictionaries, you can use `MappingProxyType` from the `types` module to create an immutable proxy.
 
 Also, be cautious when defining sensitive information as constants. For sensitive data like API keys or passwords, it's better to use environment variables to keep them secure and separate from your source code.
+
+# How to create separate setting file for production and development
+
+In Django, it's common practice to have separate settings files for different environments, such as production and development. This allows you to configure settings specific to each environment, ensuring a smooth and secure deployment process. Here's how you can create separate settings files for production and development:
+
+1. Create separate settings files:
+In your Django project, create two separate Python modules for settings: `settings.py` and `settings_production.py`. The `settings.py` file will contain the common settings applicable to all environments, while the `settings_production.py` file will include the settings specific to the production environment.
+
+```
+your_project/
+    ├── your_project/
+    │   ├── settings.py
+    │   ├── settings_production.py
+    │   └── ...
+    ├── manage.py
+    └── ...
+```
+
+2. Define common settings in settings.py:
+In the `settings.py` file, define all the common settings shared by both the development and production environments. These could include settings like database configuration, installed apps, middleware, static files, etc.
+
+```python
+# settings.py
+
+# Common settings applicable to all environments
+INSTALLED_APPS = [
+    # ... List of installed apps ...
+]
+
+# Database configuration
+DATABASES = {
+    # ... Database settings ...
+}
+
+# Other common settings ...
+```
+
+3. Override specific settings in settings_production.py:
+In the `settings_production.py` file, override the settings specific to the production environment. For example, you might want to set `DEBUG` to False, use a different database configuration, or adjust security-related settings.
+
+```python
+# settings_production.py
+from .settings import *
+
+# Override specific settings for production environment
+DEBUG = False
+
+# Use a different database for production
+DATABASES = {
+    # ...
+}
+
+# Other production-specific settings ...
+```
+
+4. Set the DJANGO_SETTINGS_MODULE environment variable:
+To switch between different settings files based on the environment, you need to set the `DJANGO_SETTINGS_MODULE` environment variable. In your development environment, set it to `your_project.settings`, and in your production environment, set it to `your_project.settings_production`.
+
+For Linux/macOS terminal:
+
+```bash
+# Development environment
+export DJANGO_SETTINGS_MODULE=your_project.settings
+
+# Production environment
+export DJANGO_SETTINGS_MODULE=your_project.settings_production
+```
+
+For Windows Command Prompt:
+
+```bash
+# Development environment
+set DJANGO_SETTINGS_MODULE=your_project.settings
+
+# Production environment
+set DJANGO_SETTINGS_MODULE=your_project.settings_production
+```
+
+5. Use the correct settings file in manage.py:
+In the `manage.py` file, modify the `os.environ.setdefault` line to use the correct settings file:
+
+```python
+# manage.py
+import os
+import sys
+
+if __name__ == "__main__":
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "your_project.settings")  # Use your_project.settings_production for production
+    try:
+        from django.core.management import execute_from_command_line
+    except ImportError as exc:
+        raise ImportError("Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?") from exc
+    execute_from_command_line(sys.argv)
+```
+
+With this setup, when you run your Django project using `python manage.py runserver`, it will use the settings from `settings.py` for development, and when deploying in a production environment, make sure to set the `DJANGO_SETTINGS_MODULE` environment variable to `your_project.settings_production`.
+
+Remember to handle sensitive information, such as API keys or database credentials, securely in your production settings, using environment variables or a dedicated secrets manager, to ensure they are not exposed in version control or deployment scripts.

@@ -4,7 +4,8 @@ from django.template import loader
 from django.shortcuts import redirect
 from django.core.files.storage import FileSystemStorage
 from django.contrib.auth import login, authenticate, logout
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
+from user.models import CustomUser
 from django.contrib.auth.hashers import make_password
 from django.urls import reverse
 import random
@@ -38,7 +39,7 @@ def signup_save(request):
         if errors:        
             return render(request,'user/signup_form.html',context)   
         password = make_password(request.POST['password'])            
-        userobj = User(username=username,email=email,first_name=first_name,last_name=last_name,password=password,is_active=1,is_staff=1)
+        userobj = CustomUser(username=username,email=email,first_name=first_name,last_name=last_name,password=password,is_active=1,is_staff=1)
         userobj.save()
         return redirect('login_form')
         

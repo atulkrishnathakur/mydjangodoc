@@ -155,6 +155,105 @@ Successfully installed mysqlclient-2.1.1
 (venv) I:\mydjangofirst\mydjangodoc>
 ```
 
+# custom user 
+'Django' highly recomended that create a custom user and custom user model. If you not create custom user model then django create problem when you want to alter auth_user table. You can also create custom user in mid level of project but it some dificult.
+
+1. create customusers app. You can also use users name for app.
+2. create Model CustomUser. You can also use 'User' name for model 
+   ```
+from django.db import models
+from django.contrib.auth.models import AbstractUser
+
+# Create your models here.
+
+class CustomUser(AbstractUser):
+    phone = models.CharField(max_length=20,null=True,db_column='phone')
+    
+    class Meta:
+        db_table = 'auth_user'
+   ```
+3. register custom user in setting.py
+4. AUTH_USER_MODEL = "user.CustomUser" add this in settings.py  
+5. now use any where in your code
+```
+from user.models import CustomUser
+```
+
+# How to create Custom User after some development in Django
+1. Create the users app
+```
+python manage.py startapp users
+
+``` 
+2. Add the following to the models.py:
+```
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+
+class CustomUser(AbstractUser):
+    class Meta:
+        db_table = 'auth_user'
+```
+Note: If you don't specify the name, you'll receive an error "django.db.utils.OperationalError: no such table: users_customuser"
+
+3. Register the new Model in the admin panel:
+```
+# In users/admin.py
+from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+from .models import CustomUser
+
+class CustomUserAdmin(UserAdmin):
+    model = CustomUser
+
+admin.site.register(CustomUser, CustomUserAdmin)
+```
+4. Register the users app in setting.py 
+INSTALLED_APPS = [
+    .....,
+	.....,
+    'users',
+    .....,
+	.....
+]
+
+4. Add following in setting.py file.
+```
+AUTH_USER_MODEL = "users.CustomUser"
+```
+5. Replace Users imports
+
+In your project code, replace all imports of the Django User model:
+
+```
+from django.contrib.auth.models import User
+
+```
+with the new, custom one:
+```
+from user.models import CustomUser
+
+```
+
+5. Delete Old Migrations
+
+Run the following two commands in your terminal, from the root of your project:
+
+command-1: find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+command-2: find . -path "*/migrations/*.pyc" -delete
+
+Note: You can also manualy delete all migrations file with .py extension and .pyc extension
+
+6. Create New Migrations
+```
+python manage.py makemigrations
+
+```
+
+7. Truncate or delete data of the django_migrations table
+
+Note: Now you can add new field in auth_user table 
+
 # show migrations
 ```
 (venv) I:\mydjangofirst\mydjangodoc>python manage.py showmigrations

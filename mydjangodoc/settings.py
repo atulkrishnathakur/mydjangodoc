@@ -82,7 +82,10 @@ DATABASES = {
         'USER':'root',  
         'PASSWORD':'',  
         'HOST':'localhost',  
-        'PORT':'3306'  
+        'PORT':'3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        },        
     }  
 } 
 
@@ -132,4 +135,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
-MY_CUSTOM_SETTING = 'Hello, this is my custom setting!'
+AUTH_USER_MODEL = "user.CustomUser"

@@ -1104,3 +1104,40 @@ if __name__ == "__main__":
 With this setup, when you run your Django project using `python manage.py runserver`, it will use the settings from `settings.py` for development, and when deploying in a production environment, make sure to set the `DJANGO_SETTINGS_MODULE` environment variable to `your_project.settings_production`.
 
 Remember to handle sensitive information, such as API keys or database credentials, securely in your production settings, using environment variables or a dedicated secrets manager, to ensure they are not exposed in version control or deployment scripts.
+
+
+# How to configure and use bassics logging
+
+check url: https://docs.djangoproject.com/en/4.2/howto/logging/#logging-how-to
+
+In your settings.py:
+
+```
+LOGGING = {
+    "version": 1,  # the dictConfig format version
+    "disable_existing_loggers": False,  # retain the default loggers
+    "handlers": {
+        "file": {
+            "class": "logging.FileHandler",
+            "filename": "general.log",
+            "level": "DEBUG",
+        },
+    },
+    "loggers": {
+        "": {
+            "level": "DEBUG",
+            "handlers": ["file"],
+        },
+    },
+}
+```
+
+1. DEBUG: Low level system information for debugging purposes
+2. INFO: General system information
+3. WARNING: Information describing a minor problem that has occurred.
+4. ERROR: Information describing a major problem that has occurred.
+5. CRITICAL: Information describing a critical problem that has occurred.
+
+1. Note1: if you are using debug then debug, info,warning, error, critical messages will be print in general.log file
+2. Note2: if you are using critical then debug,info,warning, error messages will not print in general.log file only critical messages will be print in general.log file.
+3. Note3: if you are using warning then only debug,info,warning messages will be print in general.log file

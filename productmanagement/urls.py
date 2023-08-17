@@ -14,4 +14,5 @@ urlpatterns = [
     path('category-edit/<int:id>', category.category_edit, name='categoryedit'),
     path('category-update', category.category_update, name='categoryupdate'),
     path('category-delete/<int:id>', category.category_delete, name='categorydelete'),
+    path('test-log/', category.testLog, name='testlog')
 ]

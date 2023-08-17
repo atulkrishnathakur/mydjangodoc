@@ -7,7 +7,10 @@ from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.models import Permission
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+#from mydjangodoc import settings_production
 from productmanagement.constants import MAXIMUM_RETRIES, DEFAULT_USERNAME, VALID_STATUSES
+import logging
+logger = logging.getLogger(__name__)
 
 def home(request):
     return HttpResponse('<h1>Hello World</h1>')
@@ -66,6 +69,7 @@ def save_category(request):
         
 @login_required        
 def category_list(request):
+    print(HttpResponse(request))
     try:
         if request.method == "GET":
             custom_setting_value = settings.MY_CUSTOM_SETTING
@@ -125,5 +129,18 @@ def category_delete(request,id):
             category = Category.objects.get(cat_id = id)
             category.delete()
             return redirect('categorylist')
+    except Exception as e:
+        print(e)
+        
+def testLog(request):
+    try:
+        logger.debug("This is debug log")
+        logger.info("This is info log")
+        logger.warning("This is warning log")
+        logger.error("This is error log")
+        logger.critical("This is critical log")
+        context = {
+        }
+        return HttpResponse(context)
     except Exception as e:
         print(e)

@@ -1138,6 +1138,7 @@ LOGGING = {
 4. ERROR: Information describing a major problem that has occurred.
 5. CRITICAL: Information describing a critical problem that has occurred.
 
+Important notea:-
 1. Note1: if you are using debug then debug, info,warning, error, critical messages will be print in general.log file
 2. Note2: if you are using critical then debug,info,warning, error messages will not print in general.log file only critical messages will be print in general.log file.
 3. Note3: if you are using warning then only debug,info,warning messages will be print in general.log file

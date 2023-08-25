@@ -1141,4 +1141,37 @@ LOGGING = {
 Important notea:-
 1. Note1: if you are using debug then debug, info,warning, error, critical messages will be print in general.log file
 2. Note2: if you are using critical then debug,info,warning, error messages will not print in general.log file only critical messages will be print in general.log file.
-3. Note3: if you are using warning then only debug,info,warning messages will be print in general.log file
+3. Note3: if you are using warning then only debug,info,warning messages will be print in general.log file.
+
+# loggers format 
+
+```
+LOGGING = {
+    "version": 1,  # the dictConfig format version
+    "disable_existing_loggers": False,  # retain the default loggers
+    "formatters": {
+        "verbose": {
+            "format": "{name} {levelname} {asctime} {module} {process:d} {thread:d} {message}",
+            "style": "{",
+        },
+        "simple": {
+            'format': '[%(asctime)s] %(levelname)s %(message)s',
+            'datefmt': '%Y-%m-%d %H:%M:%S'
+        },
+    },
+    "handlers": {
+        "file": {
+            "class": "logging.FileHandler",
+            "filename": "general.log",
+            "level": "DEBUG",
+            "formatter": "simple",
+        },
+    },
+    "loggers": {
+        "": {
+            "level": "DEBUG",
+            "handlers": ["file"],
+        },
+    },
+}
+```

@@ -142,17 +142,29 @@ MY_CUSTOM_SETTING = "Test custom setting key"
 LOGGING = {
     "version": 1,  # the dictConfig format version
     "disable_existing_loggers": False,  # retain the default loggers
+    "formatters": {
+        "verbose": {
+            "format": "{name} {levelname} {asctime} {module} {process:d} {thread:d} {message}",
+            "style": "{",
+        },
+        "simple": {
+            'format': '[%(asctime)s] %(levelname)s %(message)s',
+            'datefmt': '%Y-%m-%d %H:%M:%S'
+        },
+    },
     "handlers": {
         "file": {
             "class": "logging.FileHandler",
             "filename": "general.log",
             "level": "DEBUG",
+            "formatter": "simple",
         },
     },
     "loggers": {
         "": {
             "level": "DEBUG",
             "handlers": ["file"],
+            'propagate': False,
         },
     },
 }

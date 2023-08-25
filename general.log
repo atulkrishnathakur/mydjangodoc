@@ -1,1 +1,201 @@
-Watching for file changes with StatReloader
+[2023-08-25 09:40:28] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 09:40:33] INFO Watching for file changes with StatReloader
+[2023-08-25 09:40:37] DEBUG {'catcode': 'GLB'}
+[2023-08-25 09:43:50] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 09:43:53] INFO Watching for file changes with StatReloader
+[2023-08-25 09:46:10] INFO I:\mydjangofirst\mydjangodoc\productmanagement\models\product.py changed, reloading.
+[2023-08-25 09:46:14] INFO Watching for file changes with StatReloader
+[2023-08-25 09:46:16] INFO I:\mydjangofirst\mydjangodoc\productmanagement\models\product.py changed, reloading.
+[2023-08-25 09:46:19] INFO Watching for file changes with StatReloader
+[2023-08-25 09:46:30] INFO I:\mydjangofirst\mydjangodoc\productmanagement\models\product.py changed, reloading.
+[2023-08-25 09:46:33] INFO Watching for file changes with StatReloader
+[2023-08-25 10:11:02] INFO Watching for file changes with StatReloader
+[2023-08-25 10:11:20] INFO I:\mydjangofirst\mydjangodoc\productmanagement\urls.py changed, reloading.
+[2023-08-25 10:11:23] INFO Watching for file changes with StatReloader
+[2023-08-25 10:18:18] ERROR Internal Server Error: /product/create-product/
+Traceback (most recent call last):
+  File "I:\mydjangofirst\venv\lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: "url('save_product')"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py", line 17, in create_product
+    template = loader.get_template("productmanagement/create_product.html")
+  File "I:\mydjangofirst\venv\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "I:\mydjangofirst\venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "I:\mydjangofirst\venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "I:\mydjangofirst\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "I:\mydjangofirst\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "I:\mydjangofirst\venv\lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\template\base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 11: 'url('save_product')', expected 'endblock'. Did you forget to register or load this tag?
+[2023-08-25 10:20:02] ERROR Internal Server Error: /product/save-product
+Traceback (most recent call last):
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view productmanagement.views.product.save_product didn't return an HttpResponse object. It returned None instead.
+[2023-08-25 10:21:27] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:21:31] INFO Watching for file changes with StatReloader
+[2023-08-25 10:21:37] ERROR Internal Server Error: /product/save-product
+Traceback (most recent call last):
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view productmanagement.views.product.save_product didn't return an HttpResponse object. It returned None instead.
+[2023-08-25 10:23:00] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:23:02] INFO Watching for file changes with StatReloader
+[2023-08-25 10:23:10] ERROR Internal Server Error: /product/save-product
+Traceback (most recent call last):
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view productmanagement.views.product.save_product didn't return an HttpResponse object. It returned None instead.
+[2023-08-25 10:25:20] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:25:22] INFO Watching for file changes with StatReloader
+[2023-08-25 10:26:05] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:26:07] INFO Watching for file changes with StatReloader
+[2023-08-25 10:26:11] ERROR Internal Server Error: /product/save-product
+Traceback (most recent call last):
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view productmanagement.views.product.save_product didn't return an HttpResponse object. It returned None instead.
+[2023-08-25 10:26:19] ERROR Internal Server Error: /product/save-product
+Traceback (most recent call last):
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view productmanagement.views.product.save_product didn't return an HttpResponse object. It returned None instead.
+[2023-08-25 10:26:49] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:26:51] INFO Watching for file changes with StatReloader
+[2023-08-25 10:27:50] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:27:52] INFO Watching for file changes with StatReloader
+[2023-08-25 10:28:30] ERROR Internal Server Error: /product/save-product
+Traceback (most recent call last):
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view productmanagement.views.product.save_product didn't return an HttpResponse object. It returned None instead.
+[2023-08-25 10:29:58] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:30:00] INFO Watching for file changes with StatReloader
+[2023-08-25 10:30:05] ERROR Internal Server Error: /product/save-product
+Traceback (most recent call last):
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view productmanagement.views.product.save_product didn't return an HttpResponse object. It returned None instead.
+[2023-08-25 10:30:42] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:30:43] INFO Watching for file changes with StatReloader
+[2023-08-25 10:33:08] ERROR Internal Server Error: /product/save-product
+Traceback (most recent call last):
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view productmanagement.views.product.save_product didn't return an HttpResponse object. It returned None instead.
+[2023-08-25 10:37:10] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:37:12] INFO Watching for file changes with StatReloader
+[2023-08-25 10:37:35] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:37:37] INFO Watching for file changes with StatReloader
+[2023-08-25 10:38:06] ERROR Internal Server Error: /product/save-product
+Traceback (most recent call last):
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view productmanagement.views.product.save_product didn't return an HttpResponse object. It returned None instead.
+[2023-08-25 10:39:26] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:39:28] INFO Watching for file changes with StatReloader
+[2023-08-25 10:39:38] ERROR Internal Server Error: /product/save-product
+Traceback (most recent call last):
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view productmanagement.views.product.save_product didn't return an HttpResponse object. It returned None instead.
+[2023-08-25 10:40:06] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:40:08] INFO Watching for file changes with StatReloader
+[2023-08-25 10:43:15] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:43:20] INFO Watching for file changes with StatReloader
+[2023-08-25 10:43:55] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:43:59] INFO Watching for file changes with StatReloader
+[2023-08-25 10:44:04] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:44:09] INFO Watching for file changes with StatReloader
+[2023-08-25 10:44:43] ERROR Internal Server Error: /product/save-product
+Traceback (most recent call last):
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "I:\mydjangofirst\venv\lib\site-packages\django\core\handlers\base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view productmanagement.views.product.save_product didn't return an HttpResponse object. It returned None instead.
+[2023-08-25 10:46:51] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:46:55] INFO Watching for file changes with StatReloader
+[2023-08-25 10:47:11] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:47:15] INFO Watching for file changes with StatReloader
+[2023-08-25 10:47:24] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:47:29] INFO Watching for file changes with StatReloader
+[2023-08-25 10:49:46] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:49:50] INFO Watching for file changes with StatReloader
+[2023-08-25 10:49:56] INFO I:\mydjangofirst\mydjangodoc\productmanagement\views\product.py changed, reloading.
+[2023-08-25 10:50:01] INFO Watching for file changes with StatReloader

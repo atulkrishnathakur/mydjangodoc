@@ -1,0 +1,59 @@
+{% extends 'productmanagementbase.html' %}
+{% load static %}
+{% block csscontent %} 
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+<link rel="stylesheet" href="{% static 'productmanagement/css/style.css' %}">
+{% endblock csscontent %}
+{% block contenttitle %} Home Page {% endblock contenttitle %}
+{% block content %}
+<div class="container mt-3">
+ <h1>Create Product</h1>
+  <form action={% url 'save_product' %}  method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+	<input type="hidden" name="get_category_ajax_url" id="get_category_ajax_url" value= {% url 'get_category_ajax' %} >  
+	<div class="row">
+      <div class="col">
+	    <label for="category_id">Category Name:</label>
+        <select name="category_id" class="form-control" onchange="getCategoryCodeByAjax(this)">
+		  <option value="">-Select-</option>
+		  {% for category in categories %}
+		  <option value="{{category.cat_id}}">{{category.category_name}}</option>
+		  {% endfor %}
+		</select>
+      </div>
+	  <div class="col">
+	    <label for="category_name">Category Code:</label>
+        <input type="text" name="category_code" id="catcode" class="form-control" readonly>
+      </div>    
+	</div> 
+    <div class="row">
+      <div class="col">
+	    <label for="category_name">Product Name:</label>
+        <input type="text" class="form-control" placeholder="Enter Product Name" id="product_name" name="product_name">
+      </div>
+      <div class="col">
+	    <label for="description">Product Code:</label>
+        <input type="text" class="form-control" placeholder="Enter Category Code" id="product_code" name="product_code">
+      </div>
+	 </div>
+	  <div class="col">
+        <label for="description">Image:</label>
+        <input class="form-control" type="file" name="productimage" id="productimage">
+      </div>
+	 </div> 
+	 <div class="row">
+	  <div class="col mt-5">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+	 </div> 
+    </div>
+  </form>
+</div>
+{% endblock content %}
+{% block jscontent %} 
+<script src="{% static 'productmanagement/js/product.js' %}" ></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+{% endblock jscontent %}
+{% block footercontent %}
+{% include "productmanagement/include/footer.html" %}
+{% endblock footercontent %}

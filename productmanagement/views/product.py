@@ -38,7 +38,8 @@ def saveproduct(request):
         if request.method == "POST":
             catid = request.POST['category_id']
             product_name = request.POST['product_name']
-            prodobj = Product.objects.create(product_name=product_name,image="abc.png")
+            category = Category.objects.get(cat_id = catid)
+            prodobj = Product.objects.create(product_name=product_name,image="abc.png",cat_id=category)
             #prodobj.save()
             return redirect('categorylist')
     except Exception as e:

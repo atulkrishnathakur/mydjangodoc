@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from productmanagement.models.categories import Category
+from productmanagement.models.product import Product
 from django.template import loader
 from django.shortcuts import redirect
 from django.core.files.storage import FileSystemStorage
-from productmanagement.models.product import Product
+
 
 import logging
 
@@ -31,19 +32,14 @@ def get_category_ajax(request):
             return JsonResponse(context)
     except Exception as e:
         logger.debug(e)
-        
-def save_product(request):
+
+def saveproduct(request):
     try:
-        if request.method == 'POST':
+        if request.method == "POST":
             catid = request.POST['category_id']
-            productname = request.POST['product_name'];
-            productcode = request.POST['product_code'];
-            #myimage = request.FILES['productimage']
-            #imagename = myimage.name
-            #imgmediapath = "product/"+imagename
-            #fs = FileSystemStorage()
-            #imagefile = fs.save(imgmediapath, myimage)
-            #prodobj = Product(product_name="dd",cat_id=2,image="ddd.png")
+            product_name = request.POST['product_name']
+            prodobj = Product.objects.create(product_name=product_name,image="abc.png")
             #prodobj.save()
+            return redirect('categorylist')
     except Exception as e:
         print(e)

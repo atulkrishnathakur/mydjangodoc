@@ -17,6 +17,6 @@ urlpatterns = [
     path('test-log/', category.testLog, name='testlog'),
     path('create-product/',product.create_product, name='create_product'),
     path('get-category-ajax/',product.get_category_ajax,name='get_category_ajax'),
-    path('saveproduct/',product.saveproduct,name='saveproduct')
-    
+    path('saveproduct/',product.saveproduct,name='saveproduct'),
+    path('product-list/',product.product_list,name='productlist')
 ]

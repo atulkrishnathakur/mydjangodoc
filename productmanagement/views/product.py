@@ -44,3 +44,21 @@ def saveproduct(request):
             return redirect('categorylist')
     except Exception as e:
         print(e)
+        
+        
+def product_list(request):
+    try:    
+        if request.method == "GET":
+            productAll = Product.objects.all() # left ourter join means left join
+            #print(str(productAll)) 
+            #print(str(productAll.query))
+            cat  =  productAll[3].cat_id
+            template = loader.get_template("productmanagement/product_list.html")
+            context = {
+                'productAll':productAll
+            }
+            return HttpResponse(template.render(context, request))
+        else:
+            return         
+    except Exception as e:
+        print(e)

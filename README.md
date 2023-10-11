@@ -1175,3 +1175,79 @@ LOGGING = {
     },
 }
 ```
+
+# How to use django-extensions package
+
+1. run command to install
+Note that Django provides you with a built-in shell command. However, the shell_plus command is more convenient to work with. For example, it automatically loads the models defined in the project and displays the generated SQL.
+
+https://django-extensions.readthedocs.io/en/latest/installation_instructions.html    
+
+```
+(venv) I:\mydjangofirst\mydjangodoc>pip install django-extensions
+```
+
+2. add in settings.py file
+```
+INSTALLED_APPS = (
+    ...
+    'django_extensions',
+)
+```
+3. You can verify that the application is available on your PYTHONPATH by opening a python interpreter and entering the following commands. 
+Note: shell is the default command of django
+```
+(venv) I:\mydjangofirst\mydjangodoc>python manage.py shell
+Python 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> import django_extensions
+>>> django_extensions.VERSION
+(3, 2, 3)
+```
+
+# See sql query of ORM
+```
+(venv) I:\mydjangofirst\mydjangodoc>python manage.py shell_plus --print-sql
+```
+
+```
+>>> from productmanagement.models.categories import Category
+>>> from productmanagement.models.product import Product
+```
+
+```
+>>> productAll = Product.objects.filter(cat_id=2)
+>>> product.objects.filter(cat_id=2)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'product' is not defined
+>>> Product.objects.filter(cat_id=2)
+SELECT `products`.`id`,
+       `products`.`cat_id`,
+       `products`.`product_name`,
+       `products`.`status`,
+       `products`.`created_at`,
+       `products`.`updated_at`,
+       `products`.`image`
+  FROM `products`
+ WHERE `products`.`cat_id` = 2
+ LIMIT 21
+Execution time: 0.001000s [Database: default]
+<QuerySet []>
+```
+
+# How to use already created database in django
+
+If you want to use existing database it means you want to use already created database in django then we have need to inspectdb.
+1. You can use inspectdb command to create model file for existing database
+```
+(venv) I:\mydjangofirst\myerp>python manage.py inspectdb > products\models\existing.py
+```
+
+2. If you want to create model file according to table for existing database then use inspectdb command 
+```
+(venv) I:\mydjangofirst\myerp>python manage.py inspectdb table_1 table_2 > products\models\existing.py
+
+```
+

@@ -179,7 +179,7 @@ Successfully installed mysqlclient-2.1.1
 
 1. create customusers app. You can also use users name for app.
 2. create Model CustomUser. You can also use 'User' name for model 
-   ```
+```
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -190,12 +190,16 @@ class CustomUser(AbstractUser):
     
     class Meta:
         db_table = 'auth_user'
-   ```
+```
 3. register custom user in setting.py
 4. AUTH_USER_MODEL = "user.CustomUser" add this in settings.py  
 5. now use any where in your code
 ```
 from user.models import CustomUser
+```
+6. create migration otherwise django give errors
+```
+$ python manage.py makemigrations user
 ```
 
 # How to create Custom User after some development in Django

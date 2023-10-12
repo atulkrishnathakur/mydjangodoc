@@ -13,16 +13,35 @@ pip 23.0.1 from C:\Users\ATUL\AppData\Local\Programs\Python\Python310\lib\site-p
 ```
 I:\mydjangofirst>python -m venv venv
 ```
-# activate virtual environmet
+# activate virtual environmet 
+1. activate in windows cmd 
 ```
 I:\mydjangofirst>venv\Scripts\activate.bat
 (venv) I:\mydjangofirst>
 ```
-# deactivate virtual environment
+2. activate in windows git bash 
+```
+ATUL@DESKTOP-21EPCLH MINGW64 /i/mydjangofirst
+$ source venv/Scripts/activate
+(venv)
+```
+
+# deactivate virtual environment 
+1. deactivate in windows cmd
 ```
 (venv) I:\mydjangofirst>venv\Scripts\deactivate.bat
 I:\mydjangofirst>
 ```
+2. deactivate in windows git bash 
+```
+(venv) 
+ATUL@DESKTOP-21EPCLH MINGW64 /i/mydjangofirst
+$ cd venv/Scripts
+(venv) 
+ATUL@DESKTOP-21EPCLH MINGW64 /i/mydjangofirst/venv/Scripts
+$ deactivate
+```
+
 # install Django with specific version
 1. activate the virtual environment
 ```
